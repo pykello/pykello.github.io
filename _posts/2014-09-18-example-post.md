@@ -12,19 +12,19 @@ Ah, if you would only go on with us! An agent of the Peninsular Company, you kno
 
 Testing code snippets:
 
-```C
+{% highlight c %}
 int main() {
   return 0;
 }
-```
+{% endhighlight %}
 
-```python
+{% highlight python %}
 def main():
   print "Hello!"
-```
+{% endhighlight %}
 
-```elm
+{% highlight elm %}
 main: Signal Element
 main =
   constant (Text "Hello World!")
-```
+{% endhighlight %}
