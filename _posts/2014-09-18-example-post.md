@@ -8,10 +8,10 @@ Scala offers several ways to deal with Maps and their order. There is the regula
 
 <!-- more -->
 
-{% highlight scala %}
-val a = ListMap("first" -> "foo", "second" -> "bar")
-val b = a.updated("first", "foo2")
-// b: ListMap[Int,String] = Map(second -> bar, first -> foo2)
+{% highlight elm %}
+main: Signal Element
+main =
+  constant (Text "Hello World")
 {% endhighlight %}
 
 The updated ListMap instance loses the insertion order. To some extent it makes sense, because in the new ListMap ``(first -> foo2)`` was inserted after ``(second -> bar)``. However the intention was an update.
