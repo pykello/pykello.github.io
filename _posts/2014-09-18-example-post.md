@@ -8,7 +8,7 @@ Scala offers several ways to deal with Maps and their order. There is the regula
 
 <!-- more -->
 
-{% highlight elm %}
+{% highlight haskell %}
 main: Signal Element
 main =
   constant (Text "Hello World")
