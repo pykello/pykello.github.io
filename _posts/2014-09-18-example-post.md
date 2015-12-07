@@ -20,3 +20,5 @@ The updated ListMap instance loses the insertion order. To some extent it makes 
 Seems that there is not a built-in solution for this, so I have chosen to simply use a List that holds a static order of the Map items. It may introduce a small overhead, but is a simple and robust solution. In my particular use case the working set is a very small one, meaning that the tiny overhead won't be even noticable.
 
 Sample math: $$a^2 + b^2 = c^2$$.
+
+$$\int_{a}^{b} x^2 dx$$
