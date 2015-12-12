@@ -9,7 +9,7 @@ url: "https://pykello.github.io"
 twitter_username: pykello
 github_username: pykello
 github_repo: pykello/pykello.github.io
-#google_analytics: UA-80085-YOUR-ID
+google_analytics: UA-71312421-1
 disqus: pykello
 
 # Build settings
