@@ -35,11 +35,11 @@ Below diagrams show the input buildings and the expected skyline side by side:
 ## Solving the problem
 
 You can find an extended analysis of this problem at [Brian Gordon's blog][bgordon]
-, which explains several solutions of $$O(n^2)$$ and $$O(n log n)$$ complexity
+, which explains several solutions of $$O(n^2)$$ and $$O(n \log n)$$ complexity
 to this problem.
 
 Since sorting of integers can easily be reduce to this problem in linear time,
-this problem isn't solvable faster than $$O(n log n)$$ time.
+this problem isn't solvable faster than $$O(n \log n)$$ time.
 
 In this post I'm not concerned with the time complexity at all, but mostly with
 the simplicity of the solution.
@@ -102,8 +102,8 @@ solution, with the advantage that it won't generate false height changes as
 much as previous solution.
 
 The time complexity of this solution is $$O(n^2)$$, but if we had used some sort
-of sorted search tree with $$O(log n)$$ operations instead of using lists,
-this could easily be improved to $$O(n log n)$$. After all what we do here is one
+of sorted search tree with $$O(\log n)$$ operations instead of using lists,
+this could easily be improved to $$O(n \log n)$$. After all what we do here is one
 simple iteration with ```foldl```, and then adding each point exactly once, and
 removing each end point at most once.
 
@@ -134,7 +134,7 @@ merge ((x, xh):xs, xh_p) ((y, yh):ys, yh_p)
 The ```merge``` function doesn't seem very simple, so I wouldn't use this solution
 if I could use a simpler solution.
 
-Similar to merge sort, the time complexity of this solution is $$O(n log n)$$.
+Similar to merge sort, the time complexity of this solution is $$O(n \log n)$$.
 
 
 ### Conclusion
