@@ -124,11 +124,11 @@ skyline bs = (skyline (take n bs), 0) `merge` (skyline (drop n bs), 0)
 
 merge ([], _) (ys, _) = ys
 merge (xs, _) ([], _) = xs
-merge ((x, xh):xs, xi) ((y, yh):ys, yi)
-  | x > y = merge ((y, yh):ys, yi) ((x, xh):xs, xi)
+merge ((x, xh):xs, xh_p) ((y, yh):ys, yh_p)
+  | x > y = merge ((y, yh):ys, yh_p) ((x, xh):xs, xh_p)
   | x == y = (x, max xh yh) : merge (xs, xh) (ys, yh)
-  | max xi yi /= max xh yi = (x, max xh yi) : merge (xs, xh) ((y, yh):ys, yi)
-  | otherwise = merge (xs, xh) ((y, yh):ys, yi)
+  | max xh_p yh_p /= max xh yh_p = (x, max xh yh_p) : merge (xs, xh) ((y, yh):ys, yh_p)
+  | otherwise = merge (xs, xh) ((y, yh):ys, yh_p)
 {% endhighlight %}
 
 The ```merge``` function doesn't seem very simple, so I wouldn't use this solution
