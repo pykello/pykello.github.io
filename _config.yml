@@ -10,7 +10,7 @@ twitter_username: pykello
 github_username: pykello
 github_repo: pykello/pykello.github.io
 #google_analytics: UA-80085-YOUR-ID
-# disqus: disqus-id
+disqus: pykello
 
 # Build settings
 markdown: kramdown
