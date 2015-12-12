@@ -124,9 +124,9 @@ skyline bs = (skyline (take n bs), 0) `merge` (skyline (drop n bs), 0)
 merge ([], _) (ys, _) = ys
 merge (xs, _) ([], _) = xs
 merge ((x, xh):xs, xh_p) ((y, yh):ys, yh_p)
-  | x > y     = merge ((y, yh):ys, yh_p) ((x, xh):xs, xh_p)
-  | x == y    = (x, max xh yh)   : merge (xs, xh) (ys, yh)
-  | otherwise = (x, max xh yh_p) : merge (xs, xh) ((y, yh):ys, yh_p)
+  | x < y  = (x, max xh   yh_p) : merge (xs, xh)           ((y, yh):ys, yh_p)
+  | x == y = (x, max xh   yh)   : merge (xs, xh)           (ys, yh)
+  | x > y  = (y, max xh_p yh)   : merge ((x, xh):xs, xh_p) (ys, yh)
 {% endhighlight %}
 
 The ```merge``` function doesn't seem very simple, so I wouldn't use this solution
