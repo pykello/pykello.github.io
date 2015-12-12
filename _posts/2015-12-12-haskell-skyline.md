@@ -61,10 +61,10 @@ This leads us to the following solution:
 {% highlight haskell %}
 skyline bs = sort (foldl add_endpoints [] bs)
              where
-                add_endpoints = 
-                  \xs (x1, h, x2) -> xs ++ [(x1, height x1), (x2, height x2)]
-                height =
-                  \x -> maximum (0 : [h| (x1, h, x2) <- bs, x >= x1 && x < x2])
+                add_endpoints xs (x1, h, x2) =
+                  xs ++ [(x1, height x1), (x2, height x2)]
+                height x =
+                  maximum (0 : [h| (x1, h, x2) <- bs, x >= x1 && x < x2])
 {% endhighlight %}
 
 This solution has time complexity of $$O(n^2)$$ and produces some false changes,
@@ -92,9 +92,8 @@ This leads us to the following solution:
 {% highlight haskell %}
 skyline bs = sort (foldl add_building [] (sortWith (\(_,h,_)->h) bs))
              where
-                add_building = \xs (x1, h, x2) ->
-                                  [(x, h)| (x, h) <- xs, x < x1 || x > x2] ++
-                                  [(x1, h), (x2, 0)]
+                add_building xs (x1, h, x2) =
+                  [(x, h)| (x, h) <- xs, x < x1 || x > x2] ++ [(x1, h), (x2, 0)]
 {% endhighlight %}
 
 I think this also looks very simple, although not as simple as the previous
@@ -125,10 +124,9 @@ skyline bs = (skyline (take n bs), 0) `merge` (skyline (drop n bs), 0)
 merge ([], _) (ys, _) = ys
 merge (xs, _) ([], _) = xs
 merge ((x, xh):xs, xh_p) ((y, yh):ys, yh_p)
-  | x > y = merge ((y, yh):ys, yh_p) ((x, xh):xs, xh_p)
-  | x == y = (x, max xh yh) : merge (xs, xh) (ys, yh)
-  | max xh_p yh_p /= max xh yh_p = (x, max xh yh_p) : merge (xs, xh) ((y, yh):ys, yh_p)
-  | otherwise = merge (xs, xh) ((y, yh):ys, yh_p)
+  | x > y     = merge ((y, yh):ys, yh_p) ((x, xh):xs, xh_p)
+  | x == y    = (x, max xh yh)   : merge (xs, xh) (ys, yh)
+  | otherwise = (x, max xh yh_p) : merge (xs, xh) ((y, yh):ys, yh_p)
 {% endhighlight %}
 
 The ```merge``` function doesn't seem very simple, so I wouldn't use this solution
