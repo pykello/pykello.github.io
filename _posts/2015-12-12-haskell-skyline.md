@@ -154,8 +154,8 @@ solutions are strikingly simple and easy to understand.
 
 
 ### Related Links
- * [Hacker News discussion][https://news.ycombinator.com/item?id=10722094]
- * [Reddit discussion][https://www.reddit.com/r/haskell/comments/3wiqdy/haskell_skyline/]
+ * [Hacker News discussion](https://news.ycombinator.com/item?id=10722094)
+ * [Reddit discussion](https://www.reddit.com/r/haskell/comments/3wiqdy/haskell_skyline/)
 
 
 [fp-course]: https://www.edx.org/course/introduction-functional-programming-delftx-fp101x-0
