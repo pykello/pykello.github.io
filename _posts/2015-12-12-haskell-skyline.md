@@ -38,8 +38,8 @@ You can find an extended analysis of this problem at [Brian Gordon's blog][bgord
 , which explains several solutions of $$O(n^2)$$ and $$O(n \log n)$$ complexity
 to this problem.
 
-Since sorting of integers can easily be reduce to this problem in linear time,
-this problem isn't solvable faster than $$O(n \log n)$$ time.
+~~Since sorting of integers can easily be reduce to this problem in linear time,
+this problem isn't solvable faster than $$O(n \log n)$$ time.~~ (See comments)
 
 In this post I'm not concerned with the time complexity at all, but mostly with
 the simplicity of the solution.
