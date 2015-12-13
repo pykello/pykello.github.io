@@ -92,9 +92,16 @@ This leads us to the following solution:
 {% highlight haskell %}
 skyline bs = sort (foldl add_building [] (sortWith (\(_,h,_)->h) bs))
              where
+                height xs y =
+                  (snd . maximum) ((0, 0): [(x, h)| (x, h) <- xs, x <= y])
                 add_building xs (x1, h, x2) =
-                  [(x, h)| (x, h) <- xs, x < x1 || x > x2] ++ [(x1, h), (x2, 0)]
+                  [(x, h)| (x, h) <- xs, x < x1 || x > x2] ++
+                  [(x1, h), (x2, height xs x2)]
 {% endhighlight %}
+
+**Update**. Initial version of this code, which wrongly added ```(x2, 0)```
+in ```add_building``` was incorrect, for the reason described by Chris_Newton
+in [here](https://news.ycombinator.com/item?id=10723920).
 
 I think this also looks very simple, although not as simple as the previous
 solution, with the advantage that it won't generate false height changes as
@@ -105,6 +112,9 @@ of sorted search tree with $$O(\log n)$$ operations instead of using lists,
 this could easily be improved to $$O(n \log n)$$. After all what we do here is one
 simple iteration with ```foldl```, and then adding each point exactly once, and
 removing each end point at most once.
+
+Note that ```height xs y``` can also be implemented in $$O(\log n)$$ if xs is
+some kind of sorted search tree.
 
 
 ### Solution 3. Divide and Conquer
