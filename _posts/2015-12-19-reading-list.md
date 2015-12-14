@@ -10,3 +10,6 @@ category: reading
   ([via](https://www.dragonflydigest.com/2015/10/25/16945.html))
 * [TASKMASTER : An Architecture Pattern for GUI Applications]
   (http://www.objectmentor.com/resources/articles/taskmast.pdf)
+* [Chromium Important Abstractions and Data Structures]
+  (http://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures)
+* [Little Forms](http://runtimelegend.com/rep/lforms/index)
