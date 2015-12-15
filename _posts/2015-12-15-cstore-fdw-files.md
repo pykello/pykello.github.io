@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "cstore_fdw and 'Files are Hard'"
-category: programming
+category: databases
 ---
 
 I recently came accross the "[Files are hard][files-are-hard]" article, and it
