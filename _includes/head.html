@@ -30,5 +30,10 @@
     {% endif %}
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
     </script>
+    
+    <script>
+        if (window.location.protocol != "https:")
+            window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+    </script>
 
 </head>
