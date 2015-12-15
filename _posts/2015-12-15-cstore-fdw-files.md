@@ -79,7 +79,7 @@ consistent state and we won't have data corruption.
 This is because:
 
 - We don't change the main metadata file in these steps.
-- We don't overwrite or move the old data, in the data fil.
+- We don't overwrite or move the old data in the data file.
 
 What about 5th step? The nice thing here is that the [specification][rename]
 of the rename system call requires it to be automic. So this step either is done
