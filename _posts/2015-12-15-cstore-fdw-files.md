@@ -100,6 +100,10 @@ I've missed a step, which is doing a sync on the parent directory to make the
 rename durable. That is something we should fix, but I'm happy that our design
 seem to avoid most of the issues discussed in "Files are hard".
 
+## Links
+
+ * [Hacker News Discussion](https://news.ycombinator.com/item?id=10741385)
+
 [files-are-hard]: http://danluu.com/file-consistency/
 [cstore-fdw]: https://github.com/citusdata/cstore_fdw/
 [orc]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC
