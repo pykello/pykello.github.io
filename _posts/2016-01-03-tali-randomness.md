@@ -10,7 +10,7 @@ rolls aren't completely random. For example, sometimes when I zeroed out the
 
 So I had to go and look at the source code. It turned out that my feeling
 wasn't anything more than an illusion. You can read about this phenomena more
-[here][http://www.dailymail.co.uk/home/moslive/article-1334712/Humans-concept-randomness-hard-understand.html].
+[here][dailymail].
 
 But I found out that the implementation ```RollDie()``` had a subtle bug.
 
@@ -28,8 +28,8 @@ RollDie (void)
 {% endhighlight %}
 
 What this code intends to do is to generate a random number in range
-$$[0..RAND_MAX)$$, then scale it to range $$[0..1)$$, and then map it to a
-number in set $${1, ..., 6}$$.
+$$[0..RAND\_MAX)$$, then scale it to range $$[0..1)$$, and then map it to a
+number in set $$\{1, ..., 6\}$$.
 
 But the problem is ...
 
@@ -50,7 +50,7 @@ instead of a simple ```rand() % 6 + 1```?
 
 My guess was that it was attempting to make the distribution uniform. If we use
 ```rand() % 6 + 1```, since RAND_MAX is usually $$2^k$$ and not a multiple of 6,
-then first few elements of $${1..6}$$ will have slightly more chance than the
+then first few elements of $$\{1, ..., 6\}$$ will have slightly more chance than the
 rest of the numbers in the set.
 
 But this is also a problem for the floating point arithmetic implementation. This
@@ -59,7 +59,7 @@ some of the values will have slightly more chance than others.
 
 To make the distribution uniform, we can find the largest ```6k < RAND_MAX```,
 and try to generate a number in range $$[0..6k)$$, and then scale it down to
-$${1,..,6}$$:
+$$\{1, ..., 6\}$$:
 
 {% highlight c %}
 int
